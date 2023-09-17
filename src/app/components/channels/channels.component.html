@@ -1,0 +1,25 @@
+<div class="search-box pt-3">
+    <input type="text" class="form-control" placeholder="Search Channel" [(ngModel)]="searchText">
+</div>
+
+<div class="pt-3">
+    <div class="list-groups">
+        <ul class="list-group list-group-flush"  *ngIf="channels.length > 0">
+            <li class="list-group-item pt-3 d-flex justify-content-between align-items-center" *ngFor="let channel of channels | filter: searchText; let i = index">
+                <div class="group-content">
+                    <p class="mb-0">{{channel.name}}</p>
+                    <p class="text-black-50">{{channel.description}}</p>
+                    <p class="text-black-50">Users# {{channel.users}}</p>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-primary me-2" (click)="navigateToChat(channel.id)">Chat</a>
+                    <a href="#" class="btn btn-warning">Join</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="no-msg" *ngIf="channels.length == 0">
+            <img src="https://shorturl.at/aeEK6" alt="No Groups" srcset="https://shorturl.at/aeEK6">
+        </div>
+    </div>
+</div>

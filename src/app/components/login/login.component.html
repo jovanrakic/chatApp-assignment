@@ -1,0 +1,15 @@
+<div class="container py-5">
+    <h2 class="text-center">Login</h2>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="mt-3">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" email>
+        </div>
+        <div class="mt-3">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" #password="ngModel" [(ngModel)]="user.password">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
